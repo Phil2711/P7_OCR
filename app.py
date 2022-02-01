@@ -48,7 +48,7 @@ def racine():
     
     # os.system('kaggle competitions download -p \'Data\\\' -c \'home-credit-default-risk\'')
     
-    les_clients = pd.read_csv('Data\\les_clients.csv')
+    les_clients = pd.read_csv('\\Data\\les_clients.csv')
     
     return render_template('tdb.html',
                            clients = les_clients['SK_ID_CURR'].unique().tolist())
@@ -59,7 +59,7 @@ def racine():
 @app.route('/api/anciennetés_clients/')
 def anciennetés_clients():
     
-    with open('Data\\antécèdents.json') as clients_json :
+    with open('\\Data\\antécèdents.json') as clients_json :
               dictionnaire_antécèdents = json.load(clients_json)
         
     return jsonify({'status' : 'ok',
