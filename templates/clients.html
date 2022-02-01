@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Les clients</title>
+	</head>
+	<!-- <body> -->
+		<select name="client" method="GET" action="/">
+			{% for client in clients %}
+				<option value="{{client}}" SELECTED>{{client}}</option>"
+			{% endfor %}
+		</select>
+	<!-- </body> -->
+</html>
