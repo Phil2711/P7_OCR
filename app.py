@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 chemin = r'C:\Users\Sdis59\Documents\OpenClassroom\P7_DS_OCR'
-X_SMOTE = pd.read_csv('Data\\X_SMOTE.csv')
+X_SMOTE = pd.read_csv('\\Data\\X_SMOTE.csv')
 
 
 
