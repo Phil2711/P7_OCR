@@ -11,9 +11,9 @@ app = Flask(__name__)
 
 chemin_données = 'Phil2711/P7_OCR/Data/'
 # chemin = r'C:\Users\Sdis59\Documents\OpenClassroom\P7_DS_OCR'
-# X_SMOTE = pd.read_csv('~\\Data\\X_SMOTE.csv')
+X_SMOTE = pd.read_csv('~\\Data\\X_SMOTE.csv')
 
-X_SMOTE = pd.read_csv(chemin_données + 'X_SMOTE.csv')
+# X_SMOTE = pd.read_csv(chemin_données + 'X_SMOTE.csv')
 
 
 #================================================================================
@@ -49,7 +49,7 @@ def racine():
     
     # os.system('kaggle competitions download -p \'Data\\\' -c \'home-credit-default-risk\'')
     
-    les_clients = pd.read_csv('~\\Data\\les_clients.csv')
+    les_clients = pd.read_csv('\\Data\\les_clients.csv')
     
     return render_template('tdb.html',
                            clients = les_clients['SK_ID_CURR'].unique().tolist())
@@ -60,7 +60,7 @@ def racine():
 @app.route('/api/anciennetés_clients/')
 def anciennetés_clients():
     
-    with open('~\\Data\\antécèdents.json') as clients_json :
+    with open('\\Data\\antécèdents.json') as clients_json :
               dictionnaire_antécèdents = json.load(clients_json)
         
     return jsonify({'status' : 'ok',
@@ -73,5 +73,5 @@ def anciennetés_clients():
 
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True
-    app.run(host='127.0.0.1', debug = True)
-#    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), threaded=True)
+    # app.run(host='127.0.0.1', debug = True)
+   app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), threaded=True)
