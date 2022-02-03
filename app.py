@@ -12,7 +12,7 @@ app = Flask(__name__)
 # chemin_données = r'https://github.com/Phil2711/P7_OCR/tree/bases/Data/'
 # chemin = r'C:\Users\Sdis59\Documents\OpenClassroom\P7_DS_OCR'
 X_SMOTE = pd.read_csv('Data/X_SMOTE.csv')
-
+les_clients = pd.read_csv('Data/les_clients.csv')
 # X_SMOTE = pd.read_csv(chemin_données + 'X_SMOTE.csv')
 
 
@@ -49,7 +49,7 @@ def racine():
     
     # os.system('kaggle competitions download -p \'Data\\\' -c \'home-credit-default-risk\'')
     
-    les_clients = pd.read_csv('Data/les_clients.csv')
+
     # les_clients.columns = ['id_client']
     
     return render_template('tdb.html',
