@@ -52,7 +52,7 @@ def racine():
     les_clients = pd.read_csv('Data/les_clients.csv')
     
     return render_template('tdb.html',
-                           clients = les_clients[',SK_ID_CURR'].unique().tolist())
+                           clients = les_clients['SK_ID_CURR'].unique().tolist())
         
  
 #================================================================================
@@ -74,4 +74,4 @@ def anciennetés_clients():
 if __name__ == "__main__":
 #    app.config['TEMPLATES_AUTO_RELOAD'] = True
     # app.run(host='127.0.0.1', debug = True)
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), threaded=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), threaded=True, debug = True)
