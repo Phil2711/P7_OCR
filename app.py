@@ -47,16 +47,13 @@ def calcul_du_risque() :
 @app.route('/')
 def racine():
     
-    le_champ = 'SK_ID_CURR'
-    
     # os.system('kaggle competitions download -p \'Data\\\' -c \'home-credit-default-risk\'')
     
     les_clients = pd.read_csv('Data/les_clients.csv')
-    print(les_clients.columns)
-    clients = les_clients[le_champ].unique().tolist()
+    
     
     return render_template('tdb.html',
-                           clients)
+                           clients = les_clients['SK_ID_CURR'].unique().tolist())
         
  
 #================================================================================
