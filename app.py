@@ -13,7 +13,7 @@ app = Flask(__name__)
 # chemin_données = r'https://github.com/Phil2711/P7_OCR/tree/bases/Data/'
 # chemin = r'C:\Users\Sdis59\Documents\OpenClassroom\P7_DS_OCR'
 X_SMOTE = pd.read_csv('Data/X_SMOTE.csv')
-les_clients = pd.read_csv('Data/les_clients.csv', header = 0)
+les_clients = pd.read_csv('les_clients.csv', header = 0)
 # X_SMOTE = pd.read_csv(chemin_données + 'X_SMOTE.csv')
 
 # @app.route('/mise_à_jour', methods=['POST'])
