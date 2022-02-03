@@ -52,7 +52,7 @@ def racine():
     les_clients = pd.read_csv('Data/les_clients.csv')
     
     return render_template('tdb.html',
-                           clients = les_clients['SK_ID_CURR'].unique().tolist())
+                           clients = les_clients[',SK_ID_CURR'].unique().tolist())
         
  
 #================================================================================
