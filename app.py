@@ -53,7 +53,7 @@ def racine():
     
     
     return render_template('tdb.html',
-                           clients = les_clients["'SK_ID_CURR'"].unique().tolist())
+                           clients = les_clients["SK_ID_CURR"].unique().tolist())
         
  
 #================================================================================
