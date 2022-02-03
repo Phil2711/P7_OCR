@@ -53,9 +53,9 @@ def racine():
     # les_clients.columns = ['id_client']
     
     return render_template('tdb.html',
-                           clients = range(100002, 111633, 1))
+                           clients = range(100002, 111663, 1))
                            
-                           
+                           # les_clients['SK_ID_CURR'].unique().tolist())
         
  
 #================================================================================
@@ -63,7 +63,7 @@ def racine():
 @app.route('/api/anciennetés_clients/')
 def anciennetés_clients():
     
-    with open('\\Data\\antécèdents.json') as clients_json :
+    with open('Data/antécèdents.json') as clients_json :
               dictionnaire_antécèdents = json.load(clients_json)
         
     return jsonify({'status' : 'ok',
