@@ -53,7 +53,9 @@ def racine():
     # les_clients.columns = ['id_client']
     
     return render_template('tdb.html',
-                           clients = les_clients['SK_ID_CURR'].unique().tolist())
+                           clients = range(100002, 111633, 1))
+                           
+                           
         
  
 #================================================================================
