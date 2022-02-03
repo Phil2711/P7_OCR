@@ -74,8 +74,8 @@ def racine():
 @app.route('/api/anciennetés_clients/')
 def anciennetés_clients():
     
-    with open('Data/antécèdents.json') as clients_json :
-              dictionnaire_antécèdents = json.load(clients_json)
+    with open('Data/antécèdents.json', 'r') as clients_json :
+              dictionnaire_antécèdents = json.load(clients_json.read())
         
     return jsonify({'status' : 'ok',
                     'data' : dictionnaire_antécèdents,
