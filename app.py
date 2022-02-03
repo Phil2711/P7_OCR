@@ -4,7 +4,7 @@ import os
 import json
 import requests
 import pandas as pd
-import git
+# import git
 from functions import risque_client
 # from functions import trace_jauge
 
