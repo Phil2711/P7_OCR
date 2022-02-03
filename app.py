@@ -16,16 +16,16 @@ X_SMOTE = pd.read_csv('Data/X_SMOTE.csv')
 les_clients = pd.read_csv('Data/les_clients.csv', header = 0)
 # X_SMOTE = pd.read_csv(chemin_données + 'X_SMOTE.csv')
 
-@app.route('/mise_à_jour', methods=['POST'])
-def webhook():
-        if request.method == 'POST':
-            repo = git.Repo('https://github.com/Phil2711/P7_OCR')
-            origin = repo.remotes.p7
+# @app.route('/mise_à_jour', methods=['POST'])
+# def webhook():
+        # if request.method == 'POST':
+            # repo = git.Repo('https://github.com/Phil2711/P7_OCR')
+            # origin = repo.remotes.p7
             
-origin.pull()
-return 'Mise à jour réussie', 200
-        else:
-            return 'Erreur', 400
+# origin.pull()
+# return 'Mise à jour réussie', 200
+        # else:
+            # return 'Erreur', 400
             
 #================================================================================
     
