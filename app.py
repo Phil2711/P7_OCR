@@ -11,7 +11,7 @@ from flask_sslify import SSLify
     
 app = Flask(__name__)
 if 'DYNO' in os.environ: # only trigger SSLify if the app is running on Heroku
-    sslify = SSLify(app)
+    SSLify(app)
     
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
             
