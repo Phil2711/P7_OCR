@@ -63,7 +63,7 @@ def racine():
     
     # les_clients = pd.read_csv('les_clients.csv',
                                # sep = ',')
-    clients = range(100002, 111683, 1)
+    clients = [i for in in range(100002, 111683, 1)]
     # les_clients['SK_ID_CURR'].unique().tolist()
     
     return render_template('tdb.html',
