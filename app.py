@@ -10,7 +10,7 @@ from functions import risque_client
 
 app = Flask(__name__)
 
-X_SMOTE = pd.read_csv('X_SMOTE.csv')
+X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
             
 #================================================================================
     
