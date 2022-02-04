@@ -10,6 +10,8 @@ from functions import risque_client
 
 app = Flask(__name__)
 
+URL = 'https://1drv.ms/f/s!Am80QXETynO-hbkQa3ev8H-WWAcDtA'
+
 # chemin_données = r'https://github.com/Phil2711/P7_OCR/tree/bases/Data/'
 # chemin = r'C:\Users\Sdis59\Documents\OpenClassroom\P7_DS_OCR'
 X_SMOTE = pd.read_csv('X_SMOTE.csv')
@@ -59,7 +61,7 @@ def racine():
     
     # os.system('kaggle competitions download -p \'Data\\\' -c \'home-credit-default-risk\'')
     
-    les_clients = pd.read_csv('les_clients.csv')
+    les_clients = pd.read_csv(URL + '/les_clients.csv')
     clients = les_clients['SK_ID_CURR'].unique().tolist()
     
     return render_template('tdb.html',
