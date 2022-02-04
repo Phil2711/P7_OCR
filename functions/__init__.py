@@ -19,7 +19,7 @@ def risque_client(X,
                axis = 1,
                inplace = True)
     le_modèle_ajusté = xgb.XGBClassifier()
-    le_modèle_ajusté.load_model(emplacement + '\\Data\\modele.json')
+    le_modèle_ajusté.load_model(emplacement + 'modele.json')
 
     la_proba_du_client = le_modèle_ajusté.predict_proba(X[X['SK_ID_CURR'] == client])[0][1]
     la_classe_du_client = le_modèle_ajusté.predict(X[X['SK_ID_CURR'] == client])[0]

@@ -7,7 +7,7 @@ import pandas as pd
 from functions import risque_client
 from flask_talisman import Talisman
 
-
+chemin = '/'
     
 app = Flask(__name__)
 
