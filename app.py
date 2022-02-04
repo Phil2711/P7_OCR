@@ -4,9 +4,8 @@ import os
 import json
 import requests
 import pandas as pd
-# import git
+from OpenSSL import crypto
 from functions import risque_client
-# from functions import trace_jauge
 
 app = Flask(__name__)
 
