@@ -55,7 +55,7 @@ function récupère_id_client() {
 
 	document.getElementById("validation").innerText = "Client sélectionné : " + client_sélectionné;
 	
-	adresse = "/functions/risque?id=" + client_sélectionné
+	adresse = "/functions/risque/?id=" + client_sélectionné
 	console.log(adresse);
 	$.ajax({
 		url:adresse,
