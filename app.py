@@ -61,7 +61,8 @@ def racine():
     
     # os.system('kaggle competitions download -p \'Data\\\' -c \'home-credit-default-risk\'')
     
-    les_clients = pd.read_csv('https://1drv.ms/u/s!Am80QXETynO-hbkRC_fYnUaWGvCqNw?e=9fwkAa')
+    les_clients = pd.read_csv('https://1drv.ms/u/s!Am80QXETynO-hbkRC_fYnUaWGvCqNw?e=9fwkAa',
+                               sep = ',')
     clients = les_clients['SK_ID_CURR'].unique().tolist()
     
     return render_template('tdb.html',
