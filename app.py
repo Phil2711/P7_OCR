@@ -4,11 +4,15 @@ import os
 import json
 import requests
 import pandas as pd
-from OpenSSL import crypto
 from functions import risque_client
+from flask_sslify import SSLify
 
+
+    
 app = Flask(__name__)
-
+if 'DYNO' in os.environ: # only trigger SSLify if the app is running on Heroku
+    sslify = SSLify(app)
+    
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
             
 #================================================================================
@@ -62,4 +66,4 @@ def anciennetés_clients():
 if __name__ == "__main__":
 
     # app.run(host='127.0.0.1', debug = True)
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3002)), threaded=True, debug = True, ssl_context = 'adhoc')
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3002)), threaded=True, debug = True)
