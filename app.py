@@ -67,7 +67,7 @@ def racine():
     # les_clients['SK_ID_CURR'].unique().tolist()
     
     return render_template('tdb.html',
-                           range(100002, 111683, 1))
+                           [i for i in range(100002, 111683)])
         
  
 #================================================================================
