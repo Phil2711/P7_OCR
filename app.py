@@ -11,8 +11,8 @@ from flask_talisman import Talisman
     
 app = Flask(__name__)
 
-if 'DYNO' in os.environ: # only trigger SSLify if the app is running on Heroku
-    Talisman(app)
+# if 'DYNO' in os.environ: # only trigger SSLify if the app is running on Heroku
+    # Talisman(app)
     
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
             
