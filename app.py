@@ -63,7 +63,8 @@ def racine():
     
     les_clients = pd.read_csv('les_clients.csv',
                                sep = ',')
-    clients = les_clients['SK_ID_CURR'].unique().tolist()
+    clients = range(100002, 111683, 1)
+    # les_clients['SK_ID_CURR'].unique().tolist()
     
     return render_template('tdb.html',
                            clients)
@@ -74,7 +75,7 @@ def racine():
 @app.route('/api/anciennetés_clients/')
 def anciennetés_clients():
     
-    with open('Data/antécèdents.json', 'r') as clients_json :
+    with open('antécèdents.json', 'r') as clients_json :
               dictionnaire_antécèdents = json.load(clients_json)
         
     return jsonify({'status' : 'ok',
