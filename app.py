@@ -61,8 +61,8 @@ def racine():
     
     # os.system('kaggle competitions download -p \'Data\\\' -c \'home-credit-default-risk\'')
     
-    les_clients = pd.read_csv('les_clients.csv',
-                               sep = ',')
+    # les_clients = pd.read_csv('les_clients.csv',
+                               # sep = ',')
     clients = range(100002, 111683, 1)
     # les_clients['SK_ID_CURR'].unique().tolist()
     
