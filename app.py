@@ -59,9 +59,8 @@ def racine():
     
     # os.system('kaggle competitions download -p \'Data\\\' -c \'home-credit-default-risk\'')
     
-    with open(pd.read_csv('les_clients.csv', header = 0),
-              'r') as les_clients :
-              clients = les_clients['SK_ID_CURR'].unique().tolist()
+    les_clients = pd.read_csv('les_clients.csv')
+    clients = les_clients['SK_ID_CURR'].unique().tolist()
     
     return render_template('tdb.html',
                            clients)
