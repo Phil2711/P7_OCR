@@ -54,17 +54,17 @@ def calcul_du_risque() :
 
     # return la_jauge
     
-@app.route('/', methods = [GET])
+@app.route('/')
 def racine():
     
     # os.system('kaggle competitions download -p \'Data\\\' -c \'home-credit-default-risk\'')
     
-    les_clients = pd.read_csv('les_clients.csv', header = 0)
-
-    # les_clients.columns = ['id_client']
+    with open(pd.read_csv('les_clients.csv', header = 0),
+              'r') as les_clients :
+              clients = les_clients['SK_ID_CURR'].unique().tolist()
     
     return render_template('tdb.html',
-                           clients = les_clients['SK_ID_CURR'].unique().tolist())
+                           clients)
         
  
 #================================================================================
