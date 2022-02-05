@@ -17,12 +17,12 @@ app = Flask(__name__)
     
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
 
-def read_json_file(filename):
-    data = []
-    with open(filename, 'r') as f:
-        data = [json.loads(_.replace('}]}"},', '}]}"}')) for _ in f.readlines()]
+# def read_json_file(filename):
+    # data = []
+    # with open(filename, 'r') as f:
+        # data = [json.loads(_.replace('}]}"},', '}]}"}')) for _ in f.readlines()]
     
-    return data
+    # return data
     
 #================================================================================
     
@@ -64,13 +64,16 @@ def anciennetés_clients():
     
     # with open('antécèdents.json') as clients_json :
               # dictionnaire_antécèdents = json.load(clients_json)
-    # anciennetés = pd.read_csv('anciennetés.csv')
+    anciennetés = pd.read_csv('anciennetés.csv')
+    
+    return jsonify(anciennetés.to_dict(orient='records'))
+
     
     # return anciennetés
     
     dictionnaire_antécèdents = read_json_file('anciennetés.csv')
    
-    return dictionnaire_antécèdents
+    # return dictionnaire_antécèdents
     
     # return jsonify({'status' : 'ok',
                     # 'data' : dictionnaire_antécèdents,
