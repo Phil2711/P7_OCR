@@ -5,10 +5,10 @@ console.log("Bonjour");
 	// success: console.log("ok")
 	// });
 
-// $.ajax({
-	// url:"/api/anciennetés_clients/",
-	// success: affiche_anciennetés_base
-	// });
+$.ajax({
+	url:"/api/anciennetés_clients/",
+	success: affiche_anciennetés_base
+	});
 	
 $.ajax({
 	url:"/",
@@ -45,7 +45,7 @@ function liste_clients(X) {
 function affiche_anciennetés_base(résultat) {
 	console.log("Affichage emplacement des antécèdents");
 	
-	base_anciennetés = résultat["data"];
+	base_anciennetés = résultat;
 	récupère_id_client(base_anciennetés);
 	}
 
