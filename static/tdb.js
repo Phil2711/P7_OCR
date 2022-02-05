@@ -7,7 +7,8 @@ console.log("Bonjour");
 
 $.ajax({
 	url:"/api/anciennetés_clients/",
-	success: affiche_anciennetés_base
+	success: console.log("ok")
+	// affiche_anciennetés_base
 	});
 	
 $.ajax({
