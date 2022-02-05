@@ -44,7 +44,6 @@ function liste_clients(X) {
 	
 function affiche_anciennetés_base(résultat) {
 	console.log("Affichage emplacement des antécèdents");
-	console.log(résultat);
 	
 	base_anciennetés = résultat["data"];
 	récupère_id_client(base_anciennetés);
@@ -74,7 +73,7 @@ function récupère_id_client() {
 			}
 	});
 		
-	affiche_anciennetés(anciennetés, client_sélectionné);
+	affiche_anciennetés(base_anciennetés, client_sélectionné);
 } 
 
 function Jauge(val, seuil) {
