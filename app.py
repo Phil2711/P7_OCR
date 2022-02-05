@@ -21,7 +21,8 @@ X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
 @app.route('/functions/risque/', methods = ['GET'])
 def calcul_du_risque() :
 
-    id_client = int(request.args.get('id', 0))
+    id_temp = request.args.get('id', 0)[ : -1]
+    id_client = int(id_temp)
 
     risque, classe = risque_client(X_SMOTE, id_client, '')
 
