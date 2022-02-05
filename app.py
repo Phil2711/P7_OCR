@@ -15,6 +15,7 @@ app = Flask(__name__)
     # Talisman(app)
     
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
+anciennetés = pd.read_csv('anciennetés.csv')
             
 #================================================================================
     
@@ -53,11 +54,11 @@ def racine():
 @app.route('/api/anciennetés_clients/')
 def anciennetés_clients():
     
-    with open('antécèdents.json', 'r') as clients_json :
-              dictionnaire_antécèdents = json.load(clients_json)
+    # with open('antécèdents.json', 'r') as clients_json :
+              # dictionnaire_antécèdents = json.load(clients_json)
         
     return jsonify({'status' : 'ok',
-                    'data' : dictionnaire_antécèdents,
+                    'data' : anciennetés,
                     })
                     
 
