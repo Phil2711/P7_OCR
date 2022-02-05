@@ -58,7 +58,7 @@ function récupère_id_client() {
 	adresse = "/functions/risque?id=" + client_sélectionné;
 	console.log(adresse);
 	$.ajax({
-		url:adresse,
+		url:adresse[ : -1],
 		success: function(résultat) {
 			le_risque = Math.round(100 * résultat["data"]["risque"]);
 			console.log("Risque = " + le_risque + "%");
