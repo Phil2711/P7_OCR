@@ -173,7 +173,7 @@ Highcharts.chart("container", {
         tooltip: {
             valueSuffix: ' %'
         }
-    }]
+    }])
 
 // },
 // Add some life
