@@ -5,9 +5,9 @@ import json
 import requests
 import pandas as pd
 from functions import risque_client
-from flask_talisman import Talisman
+# from flask_talisman import Talisman
 
-chemin = '/'
+# chemin = '/'
     
 app = Flask(__name__)
 
@@ -15,17 +15,15 @@ app = Flask(__name__)
     # Talisman(app)
     
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
-anciennetés = pd.read_csv('anciennetés.csv')
             
 #================================================================================
     
 @app.route('/functions/risque/', methods = ['GET'])
 def calcul_du_risque() :
 
-    id_temp = request.args.get('id', 0)
-    id_client = int(id_temp[ : -1])
+    id_client = int(request.args.get('id', 0))
 
-    risque, classe = risque_client(X_SMOTE, id_client, chemin)
+    risque, classe = risque_client(X_SMOTE, id_client, '')
 
     le_risque = json.dumps(risque.item())
     la_classe = json.dumps(classe.item())
@@ -55,11 +53,12 @@ def racine():
 @app.route('/api/anciennetés_clients/')
 def anciennetés_clients():
     
-    # with open('antécèdents.json', 'r') as clients_json :
-              # dictionnaire_antécèdents = json.load(clients_json)
+    with open('antécèdents.json', 'r') as clients_json :
+              dictionnaire_antécèdents = json.load(clients_json)
+    # anciennetés = pd.read_csv('anciennetés.csv')
         
     return jsonify({'status' : 'ok',
-                    'data' : anciennetés,
+                    'data' : dictionnaire_antécèdents,
                     })
                     
 
