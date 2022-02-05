@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # import plotly.graph_objects as go
-from sklearn import xgboost as xgb
+import xgboost as xgb
 
 # Calcule le résultat du candidat selon le modèle choisi
 # En entrée :
