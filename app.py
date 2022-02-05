@@ -66,8 +66,8 @@ def anciennetés_clients():
               # dictionnaire_antécèdents = json.load(clients_json)
     anciennetés = pd.read_csv('anciennetés.csv')
     
-    return jsonify('status' : 'ok',
-                   'data' : anciennetés.to_dict(orient='index'))
+    return jsonify({'status' : 'ok',
+                   'data' : anciennetés.to_dict(orient='index')})
 
     
     # return anciennetés
