@@ -22,7 +22,8 @@ anciennetés = pd.read_csv('anciennetés.csv')
 @app.route('/functions/risque/', methods = ['GET'])
 def calcul_du_risque() :
 
-    id_client = int(request.args.get('id', 0))
+    id_temp = request.args.get('id', 0)
+    id_client = int(id_temp[ : -1])
 
     risque, classe = risque_client(X_SMOTE, id_client, chemin)
 
