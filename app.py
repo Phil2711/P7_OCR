@@ -21,6 +21,7 @@ def read_json_file(filename):
     data = []
     with open(filename, 'r') as f:
         data = [json.loads(_.replace('}]}"},', '}]}"}')) for _ in f.readlines()]
+    
     return data
     
 #================================================================================
@@ -68,10 +69,12 @@ def anciennetés_clients():
     # return anciennetés
     
     dictionnaire_antécèdents = read_json_file('anciennetés.csv')
+   
+    return dictionnaire_antécèdents
     
-    return jsonify({'status' : 'ok',
-                    'data' : dictionnaire_antécèdents,
-                    })
+    # return jsonify({'status' : 'ok',
+                    # 'data' : dictionnaire_antécèdents,
+                    # })
                     
 
 
