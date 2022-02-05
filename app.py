@@ -73,7 +73,7 @@ def anciennetés_clients():
     
     dictionnaire_antécèdents = read_json_file('anciennetés.csv')
    
-    # return dictionnaire_antécèdents
+    return dictionnaire_antécèdents
     
     # return jsonify({'status' : 'ok',
                     # 'data' : dictionnaire_antécèdents,
