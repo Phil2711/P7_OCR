@@ -7,8 +7,7 @@ console.log("Bonjour");
 
 $.ajax({
 	url:"/api/anciennetés_clients/",
-	success: console.log("ok")
-	// affiche_anciennetés_base
+	success: affiche_anciennetés_base
 	});
 	
 $.ajax({
@@ -176,7 +175,7 @@ Highcharts.chart("container", {
         }
     }]
 
-},
+// },
 // Add some life
 // function (chart) {
     // if (!chart.renderer.forExport) {
