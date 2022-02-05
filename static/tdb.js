@@ -44,9 +44,9 @@ function liste_clients(X) {
 	
 function affiche_anciennetés_base(résultat) {
 	console.log("Affichage emplacement des antécèdents");
-	console.log(résultat);
+	console.log(résultat["data"]);
 	
-	base_anciennetés = résultat;
+	base_anciennetés = résultat["datat"];
 	récupère_id_client(base_anciennetés);
 	}
 
@@ -184,7 +184,7 @@ Highcharts.chart("container", {
             // var point = chart.series[0].points[0],
                 // newVal,
                 // inc = 0;
-				Math.round((Math.random() - 0.5) * 20);
+				// Math.round((Math.random() - 0.5) * 20);
 
             // newVal = point.y + inc;
             // if (newVal < 0 || newVal > 200) {
