@@ -46,6 +46,7 @@ function liste_clients(X) {
 			base_anciennetés=résultat["data"];
 			console.log(base_anciennetés);
 			}
+	});
 }	
 
 	
