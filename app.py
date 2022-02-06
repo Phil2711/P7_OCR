@@ -29,7 +29,7 @@ X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
 @app.route('/functions/risque/', methods = ['GET'])
 def calcul_du_risque() :
 
-    id_temp = request.args.get('id', 0)[ : -1]
+    id_temp = request.args.get('id', 0)
     id_client = int(id_temp)
 
     risque, classe = risque_client(X_SMOTE, id_client, '')
@@ -67,7 +67,7 @@ def anciennetés_clients():
     anciennetés = pd.read_csv('anciennetés.csv')
     
     return jsonify({'status' : 'ok',
-                   'data' : anciennetés.to_dict(orient='index')})
+                   'data' : anciennetés.to_dict(orient = 'index')})
 
     
     # return anciennetés
