@@ -211,7 +211,7 @@ function jauge(x) {
 
 function affiche_anciennetés(base_anciennetés, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
-	console.log(anciennetés);
+	console.log(base_anciennetés);
     var div = $("#tableau_antécèdents").html("");
     div.append("<table></table");
     var tableau_antécèdents = $("#tableau_antécèdents table");
