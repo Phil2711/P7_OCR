@@ -41,7 +41,7 @@ function liste_clients(X) {
 	console.log("Création de la liste des clients");
 	
 	base_anciennetés = X["data"];
-	console.log(base_anciennetés);
+	console.log(X);
 }	
 
 	
