@@ -173,17 +173,17 @@ Highcharts.chart("container", {
         tooltip: {
             valueSuffix: ' %'
         }
-    }])
+    }]
 
 },
-Add some life
+// Add some life
 function (chart) {
     if (!chart.renderer.forExport) {
         setInterval(function () {
             var point = chart.series[0].points[0],
                 newVal,
                 inc = 0;
-				Math.round((Math.random() - 0.5) * 20);
+				// Math.round((Math.random() - 0.5) * 20);
 
             newVal = point.y + inc;
             if (newVal < 0 || newVal > 200) {
@@ -211,7 +211,7 @@ function jauge(x) {
 
 function affiche_anciennetés(base_anciennetés, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
-	console.log(base_anciennetés);
+	console.log(anciennetés);
     var div = $("#tableau_antécèdents").html("");
     div.append("<table></table");
     var tableau_antécèdents = $("#tableau_antécèdents table");
