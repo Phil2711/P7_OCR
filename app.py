@@ -55,6 +55,11 @@ def racine():
     
     return render_template('tdb.html',
                            clients = les_clients['SK_ID_CURR'].unique().tolist())
+                           
+    anciennetés = pd.read_csv('anciennetés.csv')
+    
+    return jsonify({'status' : 'ok',
+                   'data' : anciennetés.to_dict(orient = 'index')})
         
  
 #================================================================================
