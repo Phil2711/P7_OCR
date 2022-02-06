@@ -5,10 +5,10 @@ console.log("Bonjour");
 	// success: console.log("ok")
 	// });
 
-// $.ajax({
-	// url:"/api/anciennetés_clients/",
-	// success: affiche_anciennetés_base
-	// });
+$.ajax({
+	url:"/api/anciennetés_clients/",
+	success: affiche_anciennetés_base
+	});
 	
 $.ajax({
 	url:"/",
@@ -40,8 +40,12 @@ console.log("Au-revoir");
 function liste_clients(X) {
 	console.log("Création de la liste des clients");
 	
-	base_anciennetés = X["data"];
-	console.log(X);
+	$.ajax({
+		url:"/api/anciennetés_clients/",
+		success: function(résultat) {
+			base_anciennetés=résultat["data"];
+			console.log(base_anciennetés);
+			}
 }	
 
 	
