@@ -73,7 +73,7 @@ function récupère_id_client() {
 			}
 	});
 		
-	affiche_anciennetés(base_anciennetés, client_sélectionné);
+	affiche_anciennetés(anciennetés, client_sélectionné);
 } 
 
 function Jauge(val, seuil) {
