@@ -40,7 +40,7 @@ console.log("Au-revoir");
 function liste_clients(X) {
 	console.log("Création de la liste des clients");
 	
-	base_anciennetés = résultat["data"];
+	base_anciennetés = X["data"];
 }	
 
 	
