@@ -30,20 +30,13 @@ def calcul_du_risque() :
     id_client = int(id_temp)
 
     risque, classe = risque_client(X_SMOTE, id_client)
+    
+    antécèdents = anciennetés[anciennetés['SK_ID_CURR'] == '111633']
+    
+    le_risque = json.dumps(risque.item())
+    la_classe = json.dumps(classe.item())
         
-    if anciennetés[anciennetés['SK_ID_CURR'] == id_client].shape[0] == 0 :
-        
-        return jsonify({'status': 'erreur',
-                        'data': {
-                        'risque': 0,
-                        'classe': 0,
-                        'antécèdents': 'vide'}
-                    })
-    else :
-        le_risque = json.dumps(risque.item())
-        la_classe = json.dumps(classe.item())
-        
-        return jsonify({'status': 'ok',
+    return jsonify({'status': 'ok',
                     'data': {
                         'risque': le_risque,
                         'classe': la_classe,
