@@ -35,8 +35,9 @@ def calcul_du_risque() :
             if len(test) == 0 :
                 test = clef, valeur
             else :
-                test += clef, valeur    le_risque = json.dumps(risque.item())
-                
+                test += clef, valeur    
+    
+    le_risque = json.dumps(risque.item())
     la_classe = json.dumps(classe.item())
         
     return jsonify({'status': 'ok',
