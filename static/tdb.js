@@ -225,8 +225,8 @@ function affiche_anciennetés(antécèdents, client) {
 
     var tableau_antécèdents = $("#tableau_antécèdents table");
 	tableau_antécèdents.append(en_tête);
-	indices = [];
-	taille = Object.keys(antécèdents).length;
+	// indices = [];
+	// taille = Object.keys(antécèdents).length;
 	
 	
 	// for (i = 0; i < taille; i++) {
