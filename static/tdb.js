@@ -16,8 +16,6 @@ $.ajax({
 	});
 	
 var le_seuil = 50;
-var base_anciennetés;
-var les_antécèdents;
 var en_tête = "<tr><th>AME_CONTRACT_TYP</th><th>MT_ANNUIT</th><th>MT_APPLICATIO</th><th>MT_CREDI</th><th>MT_DOWN_PAYMEN</th><th>MT_GOODS_PRIC</th><th>EEKDAY_APPR_PROCESS_STAR</th><th>OUR_APPR_PROCESS_STAR</th><th>LAG_LAST_APPL_PER_CONTRAC</th><th>FLAG_LAST_APPL_IN_DA</th><th>ATE_DOWN_PAYMEN</th><th>ATE_INTEREST_PRIMAR</th><th>ATE_INTEREST_PRIVILEGE</th><th>AME_CASH_LOAN_PURPOS</th><th>AME_CONTRACT_STATU</th><th>AYS_DECISIO</th><th>AME_PAYMENT_TYP</th><th>ODE_REJECT_REASO</th><th>AME_TYPE_SUIT</th><th>AME_CLIENT_TYP</th><th>AME_GOODS_CATEGOR</th><th>AME_PORTFOLI</th><th>AME_PRODUCT_TYP</th><th>HANNEL_TYP</th><th>ELLERPLACE_ARE</th><th>AME_SELLER_INDUSTR</th><th>NT_PAYMEN</th><th>AME_YIELD_GROU</th><th>RODUCT_COMBINATIO</th><th>AYS_FIRST_DRAWIN</th><th>AYS_FIRST_DU</th><th>AYS_LAST_DUE_1ST_VERSIO</th><th>AYS_LAST_DU</th><th>AYS_TERMINATIO</th><th>FLAG_INSURED_ON_APPROVA</th></tr>"
 var liste_champs = ['NAME_CONTRACT_TYPE', 'AMT_ANNUITY',
        'AMT_APPLICATION', 'AMT_CREDIT', 'AMT_DOWN_PAYMENT', 'AMT_GOODS_PRICE',
@@ -73,8 +71,7 @@ function récupère_id_client() {
 	});
 	
 
-	
-	affiche_anciennetés(client_sélectionné);
+	affiche_anciennetés(résultat["data"]["antécèdents"], client_sélectionné);
 } //fonction récupère_id_client
 
 function Jauge(val, seuil) {
@@ -210,45 +207,46 @@ function jauge(x) {
 	return x;
 } // fonction jauge
 
-function affiche_anciennetés(client) {
+function affiche_anciennetés(antécèdents, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
-	console.log("Chargement des données");
+	console.log(antécèdents);
+	// console.log("Chargement des données");
     	
-	$.ajax({
-		url:"/api/anciennetés_clients/",
-		success: function(résultat) {
-			base_anciennetés=résultat["data"];
-			console.log(base_anciennetés);
-			}
-	});
+	// $.ajax({
+		// url:"/api/anciennetés_clients/",
+		// success: function(résultat) {
+			// base_anciennetés=résultat["data"];
+			// console.log(base_anciennetés);
+			// }
+	// });
 	
 	var div = $("#tableau_antécèdents").html("");
     div.append("<table></table");
 
     var tableau_antécèdents = $("#tableau_antécèdents table");
 	tableau_antécèdents.append(en_tête);
-	indices = [];
-	taille = Object.keys(base_anciennetés).length;
+	// indices = [];
+	// taille = Object.keys(antécèdents).length;
 
-	for (i = 0; i < taille; i++) {
-		if (base_anciennetés[i]["SK_ID_CURR"] == client) {
-			indices.push(i);
-			}
-		}
-	if (indices.length == 0) {
+	// for (i = 0; i < taille; i++) {
+		// if (antécèdents[i]["SK_ID_CURR"] == client) {
+			// indices.push(i);
+			// }
+		// }
+	// if (indices.length == 0) {
 
-		var nouvelle_ligne = "<tr><td class='client'>" + client + "</td><td>Pas d'antécédent</td><td> </td></tr>";
-		tableau_antécèdents.append(nouvelle_ligne);
-		}
-		else {
-		for (var i = 0; i < indices.length; i++) {
-				les_antécèdents = base_anciennetés[i];
-			}
-		}
-	for (var i = 0; i < indices.length; i++) {
+		// var nouvelle_ligne = "<tr><td class='client'>" + client + "</td><td>Pas d'antécédent</td><td> </td></tr>";
+		// tableau_antécèdents.append(nouvelle_ligne);
+		// }
+		// else {
+		// for (var i = 0; i < indices.length; i++) {
+				// les_antécèdents = base_anciennetés[i];
+			// }
+		// }
+	for (var i = 0; i < antécèdents.length; i++) {
 		var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
 		for (j = 0; j < liste_champs.length; j++) {
-			nouvelle_ligne += "<td>" + base_anciennetés[i][liste_champs[j]] + "</td>";
+			nouvelle_ligne += "<td>" + antécèdents[i][liste_champs[j]] + "</td>";
 			}
 		nouvelle_ligne += "</tr>";
 		tableau_antécèdents.append(nouvelle_ligne);

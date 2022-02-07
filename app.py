@@ -16,6 +16,7 @@ app = Flask(__name__)
     # Talisman(app)
     
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
+anciennetés = pd.read_csv('anciennetés.csv')
 
 # def read_json_file(filename):
     # data = []
@@ -28,9 +29,11 @@ X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
     
 @app.route('/functions/risque/', methods = ['GET'])
 def calcul_du_risque() :
-
+    
     id_temp = request.args.get('id', 0)
     id_client = int(id_temp)
+
+    antécèdents = anciennetés[anciennetés['SK_ID_CURR'] == id_client
 
     risque, classe = risque_client(X_SMOTE, id_client, '')
 
@@ -40,7 +43,8 @@ def calcul_du_risque() :
     return jsonify({'status': 'ok',
                     'data': {
                         'risque': le_risque,
-                        'classe': la_classe
+                        'classe': la_classe,
+                        'antécèdents' : antécèdents
                         }
                     })
 
