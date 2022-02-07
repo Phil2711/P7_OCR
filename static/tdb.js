@@ -70,7 +70,7 @@ function récupère_id_client() {
 			affiche_anciennetés(résultat["data"]["antécèdents"], client_sélectionné);
 			},
 		error: function(résultat) {
-			consoel.log("pb!");
+			console.log("pb!");
 			}
 	});
 } //fonction récupère_id_client
