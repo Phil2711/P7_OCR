@@ -211,7 +211,7 @@ function jauge(x) {
 function affiche_anciennetés(antécèdents, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
 	console.log(antécèdents);
-	// console.log("Chargement des données");
+	console.log("Chargement des données");
     	
 	// $.ajax({
 		// url:"/api/anciennetés_clients/",
@@ -226,24 +226,24 @@ function affiche_anciennetés(antécèdents, client) {
 
     var tableau_antécèdents = $("#tableau_antécèdents table");
 	tableau_antécèdents.append(en_tête);
-	// indices = [];
-	// taille = Object.keys(antécèdents).length;
+	indices = [];
+	taille = Object.keys(antécèdents).length;
 
-	// for (i = 0; i < taille; i++) {
-		// if (antécèdents[i]["SK_ID_CURR"] == client) {
-			// indices.push(i);
-			// }
-		// }
-	// if (indices.length == 0) {
+	for (i = 0; i < taille; i++) {
+		if (antécèdents[i]["SK_ID_CURR"] == client) {
+			indices.push(i);
+			}
+		}
+	if (indices.length == 0) {
 
-		// var nouvelle_ligne = "<tr><td class='client'>" + client + "</td><td>Pas d'antécédent</td><td> </td></tr>";
-		// tableau_antécèdents.append(nouvelle_ligne);
-		// }
-		// else {
-		// for (var i = 0; i < indices.length; i++) {
-				// les_antécèdents = base_anciennetés[i];
-			// }
-		// }
+		var nouvelle_ligne = "<tr><td class='client'>" + client + "</td><td>Pas d'antécédent</td><td> </td></tr>";
+		tableau_antécèdents.append(nouvelle_ligne);
+		}
+		else {
+		for (var i = 0; i < indices.length; i++) {
+				les_antécèdents = base_anciennetés[i];
+			}
+		}
 	for (var i = 0; i < antécèdents.length; i++) {
 		var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
 		for (j = 0; j < liste_champs.length; j++) {
