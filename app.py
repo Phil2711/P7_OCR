@@ -4,8 +4,7 @@ import os
 import json
 import requests
 import pandas as pd
-from functions import risque_client, retourne_antécèdents
-
+from functions import risque_client
 import xgboost as xgb
 # from flask_talisman import Talisman
 
