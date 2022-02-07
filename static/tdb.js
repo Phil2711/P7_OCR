@@ -68,6 +68,9 @@ function récupère_id_client() {
 				}
 			Jauge(100 * résultat["data"]["risque"], le_seuil);
 			affiche_anciennetés(résultat["data"]["antécèdents"], client_sélectionné);
+			},
+		error: function(résultat) {
+			consoel.log("pb!");
 			}
 	});
 } //fonction récupère_id_client
