@@ -37,7 +37,7 @@ def calcul_du_risque() :
     
     id_temp = request.args.get('id', 0)
     id_client = int(id_temp)
-    antécèdents = anciennetes[anciennetes['SK_ID_CURR'] == id_client)
+    antécèdents = anciennetes[anciennetes['SK_ID_CURR'] == id_client]
 
     risque, classe = risque_client(X_SMOTE, id_client)
     
