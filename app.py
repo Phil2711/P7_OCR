@@ -47,9 +47,8 @@ def calcul_du_risque() :
     return jsonify({'status': 'ok',
                     'data': {
                         'risque': le_risque,
-                        'classe': la_classe,
-                        antécèdents }
-                    })
+                        'classe': la_classe}
+                    }), anciennetés
 
     
 @app.route('/')
