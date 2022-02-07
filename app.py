@@ -30,6 +30,8 @@ def calcul_du_risque() :
 
     risque, classe = risque_client(X_SMOTE, id_client)
     
+    test = {}
+    
     for clef, valeur in anciens.items() :
         if anciens[clef]['SK_ID_CURR'] == 111633 :
             if len(test) == 0 :
