@@ -13,8 +13,8 @@ import xgboost as xgb
 app = Flask(__name__)
 
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
-with open ('anciennetes.json') as base_anciennetés :
-    anciennetés = json.load(base_anciennetés)
+with open ('anciennetes.json') as base_anciennetes :
+    anciens = json.load(base_anciennetes)
     
     
 #================================================================================
@@ -29,7 +29,7 @@ def calcul_du_risque() :
 
     risque, classe = risque_client(X_SMOTE, id_client)
     
-    antécèdents = [lignes for lignes in anciennetés.items()]
+    antecedents = anciens[anciens['SK_ID_CURR'] == id_client]
     
     le_risque = json.dumps(risque.item())
     la_classe = json.dumps(classe.item())
@@ -38,7 +38,7 @@ def calcul_du_risque() :
                     'data': {
                         'risque': le_risque,
                         'classe': la_classe,
-                        'antécèdents': antécèdents.to_dict(orient =  'index')}
+                        'antécèdents': antecedents.to_dict(orient =  'index')}
                     })
 
     
