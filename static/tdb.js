@@ -61,7 +61,7 @@ function récupère_id_client() {
 			console.log("Risque = " + le_risque + "%");
 			console.log(résultat["data"]["classe"]);
 			document.getElementById("risque").innerText = "Risque de non remboursement : " + le_risque + "%";
-			if (résultat["data"]["classe"] >= le_seuil) {
+			if (résultat["data"]["classe"] >= le_seuil / 10) {
 				document.getElementById("classe").innerText = "Client à risque";
 				} else {
 					document.getElementById("classe").innerText = "Client sûr";
