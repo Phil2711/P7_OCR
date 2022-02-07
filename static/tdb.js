@@ -228,6 +228,7 @@ function affiche_anciennetés(antécèdents, client) {
 	tableau_antécèdents.append(en_tête);
 	indices = [];
 	taille = Object.keys(antécèdents).length;
+	console.log(taille);
 
 	for (i = 0; i < taille; i++) {
 		if (antécèdents[i]["SK_ID_CURR"] == client) {
@@ -241,7 +242,7 @@ function affiche_anciennetés(antécèdents, client) {
 		}
 		else {
 		for (var i = 0; i < indices.length; i++) {
-				les_antécèdents = base_anciennetés[i];
+				les_antécèdents = antécèdents[i];
 			}
 		}
 	for (var i = 0; i < antécèdents.length; i++) {
