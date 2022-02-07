@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # import plotly.graph_objects as go
 import xgboost as xgb
+import pandas as pd
 
 # Calcule le résultat du candidat selon le modèle choisi
 # En entrée :
@@ -26,7 +27,20 @@ def risque_client(X,
     return la_proba_du_client, la_classe_du_client
     
 
+def retourne_antécèdents(base,
+                         client) :
 
+    retour = pd.DataFrame
+    
+    retour = base[base['SK_ID_CURR'] == client]
+    
+    if retour.shape[0] == 0 :
+        
+        return 'rien'
+       
+    else :
+    
+        return retour
 # Trace le seuil et la position du candidat sous forme de jauge
 # En entrée :
 #  -seuil : le seuil retenu pour le modèle
