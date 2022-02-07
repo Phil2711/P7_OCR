@@ -16,8 +16,7 @@ app = Flask(__name__)
 # if 'DYNO' in os.environ: # only trigger SSLify if the app is running on Heroku
     # Talisman(app)
     
-X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
-anciennetés = pd.read_csv('anciennetés.csv')
+
 
 # def read_json_file(filename):
     # data = []
@@ -31,6 +30,9 @@ anciennetés = pd.read_csv('anciennetés.csv')
 @app.route('/functions/risque/', methods = ['GET'])
 def calcul_du_risque() :
     
+    X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
+    anciennetés = pd.read_csv('anciennetés.csv')
+
     id_temp = request.args.get('id', 0)
     id_client = int(id_temp)
 
