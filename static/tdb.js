@@ -215,7 +215,7 @@ function affiche_anciennetés(client) {
 	console.log("Chargement des données");
     	
 	$.ajax({
-		url:"https://risques-octroi-credits-p7ocr.herokuapp.com/api/anciennetés_clients/",
+		url:"/api/anciennetés_clients/",
 		success: function(résultat) {
 			base_anciennetés=résultat["data"];
 			console.log(base_anciennetés);
