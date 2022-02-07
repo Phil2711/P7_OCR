@@ -33,7 +33,7 @@ def calcul_du_risque() :
     test = dict()
     i  = 0
     for clef, valeur in anciens.items() :
-        if anciens[clef]['SK_ID_CURR'] == str(id_client) :
+        if anciens[clef]['SK_ID_CURR'] == id_client :
             test.__setitem__(i, valeur)
             i += 1
     
