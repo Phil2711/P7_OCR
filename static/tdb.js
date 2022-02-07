@@ -230,7 +230,6 @@ function affiche_anciennetés(antécèdents, client) {
 
 	for (i = 0; i < taille; i++) {
 		if (antécèdents[i]["SK_ID_CURR"] == client) {
-			console.log(i);
 			indices.push(i);
 			}
 		}
@@ -244,10 +243,10 @@ function affiche_anciennetés(antécèdents, client) {
 				les_antécèdents = antécèdents[i];
 			}
 		}
-	for (var i = 0; i < antécèdents.length; i++) {
+	for (var i = 0; i < indices.length; i++) {
 		var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
 		for (j = 0; j < liste_champs.length; j++) {
-			nouvelle_ligne += "<td>" + antécèdents[i][liste_champs[j]] + "</td>";
+			nouvelle_ligne += "<td>" + les_antécèdents[i][liste_champs[j]] + "</td>";
 			}
 		nouvelle_ligne += "</tr>";
 		tableau_antécèdents.append(nouvelle_ligne);
