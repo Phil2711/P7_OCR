@@ -42,7 +42,7 @@ def calcul_du_risque() :
                     'data': {
                         'risque': le_risque,
                         'classe': la_classe,
-                        'antécèdents': antécèdents}
+                        'antécèdents': antécèdents.to_dict(orient =  'index')}
                     })
 
     
