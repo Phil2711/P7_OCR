@@ -32,7 +32,7 @@ def calcul_du_risque() :
     
     X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
     with open ('anciennetés.json') as base_anciennetés :
-       anciennetés = json.load(anciennetés)
+       anciennetés = json.load(base_anciennetés)
 
     id_temp = request.args.get('id', 0)
     id_client = int(id_temp)
