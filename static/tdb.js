@@ -244,7 +244,7 @@ function affiche_anciennetés(antécèdents, client) {
 			var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
 			 
 			for (j = 0; j < liste_champs.length; j++) {
-				nouvelle_ligne += "<td>" + antécèdents[i][liste_champs[j]] + "</td>";
+				nouvelle_ligne += "<td>" + antécèdents[i][liste_champs[j][1 : -1]] + "</td>";
 				}
 			nouvelle_ligne += "</tr>";
 			tableau_antécèdents.append(nouvelle_ligne);		
