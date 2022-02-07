@@ -211,7 +211,7 @@ function jauge(x) {
 function affiche_anciennetés(antécèdents, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
 	console.log(antécèdents);
-	console.log("Chargement des données");
+	console.log("Chargement des données pour le client : " + client);
     	
 	// $.ajax({
 		// url:"/api/anciennetés_clients/",
@@ -228,7 +228,6 @@ function affiche_anciennetés(antécèdents, client) {
 	tableau_antécèdents.append(en_tête);
 	indices = [];
 	taille = Object.keys(antécèdents).length;
-	console.log(taille);
 
 	for (i = 0; i < taille; i++) {
 		if (antécèdents[i]["SK_ID_CURR"] == client) {
