@@ -227,19 +227,20 @@ function affiche_anciennetés(antécèdents, client) {
 	tableau_antécèdents.append(en_tête);
 	indices = [];
 	taille = Object.keys(antécèdents).length;
-
-	for (i = 0; i < taille; i++) {
-		if (antécèdents[i]["SK_ID_CURR"] == client) {
-			indices.push(i);
-			}
-		}
-	if (indices.length == 0) {
+	
+	
+	// for (i = 0; i < taille; i++) {
+		// if (antécèdents[i]["SK_ID_CURR"] == client) {
+			// indices.push(i);
+			// }
+		// }
+	if (antécèdents.length == 0) {
 
 		var nouvelle_ligne = "<tr><td class='client'>" + client + "</td><td>Pas d'antécédent</td><td> </td></tr>";
 		tableau_antécèdents.append(nouvelle_ligne);
 		}
 		else {
-		for (var i = 0; i < indices.length; i++) {
+		for (var i = 0; i < antécèdents.length; i++) {
 			var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
 			 
 			for (j = 0; j < liste_champs.length; j++) {
