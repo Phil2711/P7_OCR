@@ -5,10 +5,10 @@ console.log("Bonjour");
 	// success: console.log("ok")
 	// });
 
-$.ajax({
-	url:"/api/anciennetés_clients/",
-	success: affiche_anciennetés_base
-	});
+// $.ajax({
+	// url:"/api/anciennetés_clients/",
+	// success: affiche_anciennetés_base
+	// });
 	
 $.ajax({
 	url:"/",
@@ -72,16 +72,9 @@ function récupère_id_client() {
 			}
 	});
 	
+
 	
-	$.ajax({
-		url:"/api/anciennetés_clients/",
-		success: function(résultat) {
-			base_anciennetés=résultat["data"];
-			console.log(base_anciennetés);
-			}
-	});
-	
-	affiche_anciennetés(base_anciennetés, client_sélectionné);
+	affiche_anciennetés(client_sélectionné);
 } //fonction récupère_id_client
 
 function Jauge(val, seuil) {
@@ -217,10 +210,19 @@ function jauge(x) {
 	return x;
 } // fonction jauge
 
-function affiche_anciennetés(base_anciennetés, client) {
+function affiche_anciennetés(client) {
 	console.log("Affichage des antécèdents du client sélectionné");
-
-    var div = $("#tableau_antécèdents").html("");
+	console.log("Chargement des données");
+    	
+	$.ajax({
+		url:"/api/anciennetés_clients/",
+		success: function(résultat) {
+			base_anciennetés=résultat["data"];
+			console.log(base_anciennetés);
+			}
+	});
+	
+	var div = $("#tableau_antécèdents").html("");
     div.append("<table></table");
 
     var tableau_antécèdents = $("#tableau_antécèdents table");
