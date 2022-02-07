@@ -16,7 +16,7 @@ $.ajax({
 	});
 	
 var le_seuil = 50;
-var en_tête = "<tr><th>AME_CONTRACT_TYP</th><th>MT_ANNUIT</th><th>MT_APPLICATIO</th><th>MT_CREDI</th><th>MT_DOWN_PAYMEN</th><th>MT_GOODS_PRIC</th><th>EEKDAY_APPR_PROCESS_STAR</th><th>OUR_APPR_PROCESS_STAR</th><th>LAG_LAST_APPL_PER_CONTRAC</th><th>FLAG_LAST_APPL_IN_DA</th><th>ATE_DOWN_PAYMEN</th><th>ATE_INTEREST_PRIMAR</th><th>ATE_INTEREST_PRIVILEGE</th><th>AME_CASH_LOAN_PURPOS</th><th>AME_CONTRACT_STATU</th><th>AYS_DECISIO</th><th>AME_PAYMENT_TYP</th><th>ODE_REJECT_REASO</th><th>AME_TYPE_SUIT</th><th>AME_CLIENT_TYP</th><th>AME_GOODS_CATEGOR</th><th>AME_PORTFOLI</th><th>AME_PRODUCT_TYP</th><th>HANNEL_TYP</th><th>ELLERPLACE_ARE</th><th>AME_SELLER_INDUSTR</th><th>NT_PAYMEN</th><th>AME_YIELD_GROU</th><th>RODUCT_COMBINATIO</th><th>AYS_FIRST_DRAWIN</th><th>AYS_FIRST_DU</th><th>AYS_LAST_DUE_1ST_VERSIO</th><th>AYS_LAST_DU</th><th>AYS_TERMINATIO</th><th>FLAG_INSURED_ON_APPROVA</th></tr>"
+var en_tête = "<tr><th>NAME_CONTRACT_TYP</th><th>MT_ANNUIT</th><th>MT_APPLICATIO</th><th>MT_CREDI</th><th>MT_DOWN_PAYMEN</th><th>MT_GOODS_PRIC</th><th>EEKDAY_APPR_PROCESS_STAR</th><th>OUR_APPR_PROCESS_STAR</th><th>LAG_LAST_APPL_PER_CONTRAC</th><th>FLAG_LAST_APPL_IN_DA</th><th>ATE_DOWN_PAYMEN</th><th>ATE_INTEREST_PRIMAR</th><th>ATE_INTEREST_PRIVILEGE</th><th>AME_CASH_LOAN_PURPOS</th><th>AME_CONTRACT_STATU</th><th>AYS_DECISIO</th><th>AME_PAYMENT_TYP</th><th>ODE_REJECT_REASO</th><th>AME_TYPE_SUIT</th><th>AME_CLIENT_TYP</th><th>AME_GOODS_CATEGOR</th><th>AME_PORTFOLI</th><th>AME_PRODUCT_TYP</th><th>HANNEL_TYP</th><th>ELLERPLACE_ARE</th><th>AME_SELLER_INDUSTR</th><th>NT_PAYMEN</th><th>AME_YIELD_GROU</th><th>RODUCT_COMBINATIO</th><th>AYS_FIRST_DRAWIN</th><th>AYS_FIRST_DU</th><th>AYS_LAST_DUE_1ST_VERSIO</th><th>AYS_LAST_DU</th><th>AYS_TERMINATIO</th><th>FLAG_INSURED_ON_APPROVA</th></tr>"
 var liste_champs = ['NAME_CONTRACT_TYPE', 'AMT_ANNUITY',
        'AMT_APPLICATION', 'AMT_CREDIT', 'AMT_DOWN_PAYMENT', 'AMT_GOODS_PRICE',
        'WEEKDAY_APPR_PROCESS_START', 'HOUR_APPR_PROCESS_START',
@@ -240,13 +240,13 @@ function affiche_anciennetés(antécèdents, client) {
 		}
 		else {
 		for (var i = 0; i < indices.length; i++) {
-			 var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
+			var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
 			 
-			 for (j = 0; j < liste_champs.length; j++) {
+			for (j = 0; j < liste_champs.length; j++) {
 				nouvelle_ligne += "<td>" + antécèdents[indices[i]][liste_champs[j]] + "</td>";
-				nouvelle_ligne += "</tr>";
-				tableau_antécèdents.append(nouvelle_ligne);			
 				}
+			nouvelle_ligne += "</tr>";
+			tableau_antécèdents.append(nouvelle_ligne);		
 			}
 		}
 } // fonction affiche_anciennetés
