@@ -25,10 +25,7 @@ def risque_client(X,
 
     return la_proba_du_client, la_classe_du_client
     
-    
-def sélectionne_antécèdents(anciennetés, client) :
 
-    return anciennetés[anciennetés['SK_ID_CURR'] == client]
 
 # Trace le seuil et la position du candidat sous forme de jauge
 # En entrée :
