@@ -30,14 +30,12 @@ def calcul_du_risque() :
 
     risque, classe = risque_client(X_SMOTE, id_client)
     
-    test = {}
-    
+    test = dict()
+    i  = 0
     for clef, valeur in anciens.items() :
-        if anciens[clef]['SK_ID_CURR'] == 111633 :
-            if len(test) == 0 :
-                test = clef, valeur
-            else :
-                test += clef, valeur    
+        if anciens[clef]['SK_ID_CURR'] == str(id_client) :
+            test.__setitem__(i, valeur)
+            i += 1
     
     le_risque = json.dumps(risque.item())
     la_classe = json.dumps(classe.item())
