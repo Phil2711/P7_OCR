@@ -13,26 +13,17 @@ import xgboost as xgb
     
 app = Flask(__name__)
 
-# if 'DYNO' in os.environ: # only trigger SSLify if the app is running on Heroku
-    # Talisman(app)
+X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
+with open ('anciennetes.json') as base_anciennetés :
+    anciennetés = json.load(base_anciennetés)
     
-
-
-# def read_json_file(filename):
-    # data = []
-    # with open(filename, 'r') as f:
-        # data = [json.loads(_.replace('}]}"},', '}]}"}')) for _ in f.readlines()]
-    
-    # return data
     
 #================================================================================
     
 @app.route('/functions/risque/', methods = ['GET'])
 def calcul_du_risque() :
     
-    X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
-    with open ('anciennetes.json') as base_anciennetés :
-       anciennetés = json.load(base_anciennetés)
+
 
     id_temp = request.args.get('id', 0)
     id_client = int(id_temp)
