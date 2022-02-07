@@ -31,7 +31,7 @@ app = Flask(__name__)
 def calcul_du_risque() :
     
     X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
-    with open ('anciennetés.json') as base_anciennetés :
+    with open ('anciennetes.json') as base_anciennetés :
        anciennetés = json.load(base_anciennetés)
 
     id_temp = request.args.get('id', 0)
