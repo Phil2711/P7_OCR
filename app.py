@@ -5,6 +5,7 @@ import json
 import requests
 import pandas as pd
 from functions import risque_client
+from functions import sélectionne_antécèdents
 import xgboost as xgb
 # from flask_talisman import Talisman
 
@@ -33,9 +34,8 @@ def calcul_du_risque() :
     id_temp = request.args.get('id', 0)
     id_client = int(id_temp)
 
-    antécèdents = anciennetés[anciennetés['SK_ID_CURR'] == id_client]
-
     risque, classe = risque_client(X_SMOTE, id_client, '')
+    antécèdents = sélectionne_antécèdents(anciennetés, id_client)
 
     le_risque = json.dumps(risque.item())
     la_classe = json.dumps(classe.item())

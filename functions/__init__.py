@@ -11,20 +11,24 @@ import xgboost as xgb
 #  -le résultat du client
 #  -la classe d'appartenance du client
 def risque_client(X,
-                  client,
-                  emplacement) :
+                  client) :
 
     if X.columns[0] == 'Unnamed: 0' :
         X.drop('Unnamed: 0',
                axis = 1,
                inplace = True)
     le_modèle_ajusté = xgb.XGBClassifier()
-    le_modèle_ajusté.load_model(emplacement + 'modèle.bst')
+    le_modèle_ajusté.load_model('modèle.bst')
 
     la_proba_du_client = le_modèle_ajusté.predict_proba(X[X['SK_ID_CURR'] == client])[0][1]
     la_classe_du_client = le_modèle_ajusté.predict(X[X['SK_ID_CURR'] == client])[0]
 
     return la_proba_du_client, la_classe_du_client
+    
+    
+def sélectionne_antécèdents(anciennetés, client) :
+
+    return anciennetés[anciennetés['SK_ID_CURR'] == client]
 
 # Trace le seuil et la position du candidat sous forme de jauge
 # En entrée :
