@@ -14,7 +14,7 @@ import xgboost as xgb
 app = Flask(__name__)
 
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
-# anciennetés = pd.read_csv('anciennetes.csv')
+anciennetés = pd.read_csv('anciennetes.csv')
 # with open ('anciennetes.json') as base_anciennetés :
     # anciennetés = json.load(base_anciennetés)
     
