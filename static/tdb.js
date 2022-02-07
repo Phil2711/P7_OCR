@@ -210,7 +210,7 @@ function jauge(x) {
 
 function affiche_anciennetés(antécèdents, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
-	console.log(antécèdents);
+	console.log(antécèdents[0]);
 	console.log("Chargement des données pour le client : " + client);
     	
 	// $.ajax({
