@@ -67,11 +67,9 @@ function récupère_id_client() {
 					document.getElementById("classe").innerText = "Client sûr";
 				}
 			Jauge(100 * résultat["data"]["risque"], le_seuil);
+			affiche_anciennetés(résultat["data"]["antécèdents"], client_sélectionné);
 			}
 	});
-	
-
-	affiche_anciennetés(résultat["data"]["antécèdents"], client_sélectionné);
 } //fonction récupère_id_client
 
 function Jauge(val, seuil) {
