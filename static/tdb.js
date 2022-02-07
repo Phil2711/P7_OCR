@@ -240,18 +240,15 @@ function affiche_anciennetés(antécèdents, client) {
 		}
 		else {
 		for (var i = 0; i < indices.length; i++) {
-				les_antécèdents = antécèdents[i];
+			 var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
+			 
+			 for (j = 0; j < liste_champs.length; j++) {
+				nouvelle_ligne += "<td>" + antécèdents[indices[i]][liste_champs[j]] + "</td>";
+				nouvelle_ligne += "</tr>";
+				tableau_antécèdents.append(nouvelle_ligne);			
+				}
 			}
 		}
-	for (var i = 0; i < indices.length; i++) {
-		var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
-		for (j = 0; j < liste_champs.length; j++) {
-			nouvelle_ligne += "<td>" + les_antécèdents[i][liste_champs[j]] + "</td>";
-			}
-		nouvelle_ligne += "</tr>";
-		tableau_antécèdents.append(nouvelle_ligne);
-		}	
-		
 } // fonction affiche_anciennetés
 
 
