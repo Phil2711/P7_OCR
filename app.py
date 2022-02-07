@@ -62,23 +62,11 @@ def racine():
 @app.route('/api/anciennetés_clients/')
 def anciennetés_clients():
     
-    # with open('antécèdents.json') as clients_json :
-              # dictionnaire_antécèdents = json.load(clients_json)
+
     anciennetés = pd.read_csv('anciennetés.csv')
     
     return jsonify({'status' : 'ok',
                    'data' : anciennetés.to_dict(orient = 'index')})
-
-    
-    # return anciennetés
-    
-    # dictionnaire_antécèdents = read_json_file('anciennetés.csv')
-   
-    # return dictionnaire_antécèdents
-    
-    # return jsonify({'status' : 'ok',
-                    # 'data' : dictionnaire_antécèdents,
-                    # })
                     
 
 

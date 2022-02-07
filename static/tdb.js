@@ -37,24 +37,16 @@ var X_SMOTE;
 console.log("Au-revoir");
 
 
-function liste_clients(X) {
+function liste_clients() {
 	console.log("Création de la liste des clients");
-	
-	$.ajax({
-		url:"/api/anciennetés_clients/",
-		success: function(résultat) {
-			base_anciennetés=résultat["data"];
-			console.log(base_anciennetés);
-			}
-	});
-}	
+
+} // fonction liste_clients
 
 	
 function affiche_anciennetés_base(résultat) {
 	console.log("Affichage emplacement des antécèdents");
-	
-	récupère_id_client(base_anciennetés);
-	}
+} // fonction affiche_anciennetés_base 
+
 
 function récupère_id_client() {
 	var index_sélectionné = document.getElementById("client");
@@ -79,9 +71,18 @@ function récupère_id_client() {
 			Jauge(100 * résultat["data"]["risque"], le_seuil);
 			}
 	});
-		
+	
+	
+	$.ajax({
+		url:"/api/anciennetés_clients/",
+		success: function(résultat) {
+			base_anciennetés=résultat["data"];
+			console.log(base_anciennetés);
+			}
+	});
+	
 	affiche_anciennetés(base_anciennetés, client_sélectionné);
-} 
+} //fonction récupère_id_client
 
 function Jauge(val, seuil) {
 	
@@ -214,15 +215,15 @@ function jauge(x) {
 			}
 	});	
 	return x;
-}
+} // fonction jauge
 
 function affiche_anciennetés(base_anciennetés, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
-	console.log(base_anciennetés);
+
     var div = $("#tableau_antécèdents").html("");
     div.append("<table></table");
+
     var tableau_antécèdents = $("#tableau_antécèdents table");
-	// var en_tête = "<tr><th>Client</th><th>Annuités</th><th>En cours</th></tr>"
 	tableau_antécèdents.append(en_tête);
 	indices = [];
 	taille = Object.keys(base_anciennetés).length;
@@ -250,7 +251,8 @@ function affiche_anciennetés(base_anciennetés, client) {
 		nouvelle_ligne += "</tr>";
 		tableau_antécèdents.append(nouvelle_ligne);
 		}	
-	}
+		
+} // fonction affiche_anciennetés
 
 
   
