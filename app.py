@@ -31,7 +31,7 @@ def calcul_du_risque() :
 
     risque, classe = risque_client(X_SMOTE, id_client)
     
-    antécèdents = anciennetés[anciennetés['SK_ID_CURR'] == id_temp]
+    antécèdents = pd.DataFrame(anciennetés[anciennetés['SK_ID_CURR'] == id_temp])
     
     le_risque = json.dumps(risque.item())
     la_classe = json.dumps(classe.item())
