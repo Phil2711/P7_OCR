@@ -243,9 +243,8 @@ function affiche_anciennetés(antécèdents, client) {
 		else {
 		for (var i = 0; i < antécèdents.length; i++) {
 			var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
-			var les_valeurs = [val for val in antécèdents[i].values()]
-			for (j = 0; j < nbe_champs_antécèdents; j++) {
-				nouvelle_ligne += "<td>" + les_valeurs[j] + "</td>";
+			for val in antécèdents[i].values() {
+				nouvelle_ligne += "<td>" + val + "</td>";
 				}
 			nouvelle_ligne += "</tr>";
 			tableau_antécèdents.append(nouvelle_ligne);		
