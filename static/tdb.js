@@ -62,7 +62,7 @@ function récupère_id_client() {
 			console.log("Risque = " + le_risque + "%");
 			console.log(résultat["data"]["classe"]);
 			document.getElementById("risque").innerText = "Risque de non remboursement : " + le_risque + "%";
-			if (résultat["data"]["classe"] >= le_seuil / 10) {
+			if (résultat["data"]["classe"] == 1) {
 				document.getElementById("classe").innerText = "Client à risque";
 				} else {
 					document.getElementById("classe").innerText = "Client sûr";
@@ -212,7 +212,7 @@ function jauge(x) {
 function affiche_anciennetés(antécèdents, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
 	console.log("Chargement des données pour le client : " + client);
-    console.log(antécèdents);
+    console.log(antécèdents[0]);
 	// $.ajax({
 		// url:"/api/anciennetés_clients/",
 		// success: function(résultat) {
