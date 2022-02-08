@@ -212,7 +212,7 @@ function jauge(x) {
 function affiche_anciennetés(antécèdents, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
 	console.log("Chargement des données pour le client : " + client);
-    console.log(antécèdents[0][AMT_ANNUITY]);
+    console.log(antécèdents[0]["AMT_ANNUITY"]);
 	// $.ajax({
 		// url:"/api/anciennetés_clients/",
 		// success: function(résultat) {
