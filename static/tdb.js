@@ -17,7 +17,7 @@ $.ajax({
 	
 var le_seuil = 50;
 var en_tête = "<tr><th>CLIENT</th<th>NAME_CONTRACT_TYP</th><th>MT_ANNUIT</th><th>MT_APPLICATIO</th><th>MT_CREDI</th><th>MT_DOWN_PAYMEN</th><th>MT_GOODS_PRIC</th><th>EEKDAY_APPR_PROCESS_STAR</th><th>OUR_APPR_PROCESS_STAR</th><th>LAG_LAST_APPL_PER_CONTRAC</th><th>FLAG_LAST_APPL_IN_DA</th><th>ATE_DOWN_PAYMEN</th><th>ATE_INTEREST_PRIMAR</th><th>ATE_INTEREST_PRIVILEGE</th><th>AME_CASH_LOAN_PURPOS</th><th>AME_CONTRACT_STATU</th><th>AYS_DECISIO</th><th>AME_PAYMENT_TYP</th><th>ODE_REJECT_REASO</th><th>AME_TYPE_SUIT</th><th>AME_CLIENT_TYP</th><th>AME_GOODS_CATEGOR</th><th>AME_PORTFOLI</th><th>AME_PRODUCT_TYP</th><th>HANNEL_TYP</th><th>ELLERPLACE_ARE</th><th>AME_SELLER_INDUSTR</th><th>NT_PAYMEN</th><th>AME_YIELD_GROU</th><th>RODUCT_COMBINATIO</th><th>AYS_FIRST_DRAWIN</th><th>AYS_FIRST_DU</th><th>AYS_LAST_DUE_1ST_VERSIO</th><th>AYS_LAST_DU</th><th>AYS_TERMINATIO</th><th>FLAG_INSURED_ON_APPROVA</th></tr>"
-// var liste_champs = ['NAME_CONTRACT_TYPE, AMT_ANNUITY,
+// var liste_champs = ['NAME_CONTRACT_TYPE', 'AMT_ANNUITY',
        // 'AMT_APPLICATION', 'AMT_CREDIT', 'AMT_DOWN_PAYMENT', 'AMT_GOODS_PRICE',
        // 'WEEKDAY_APPR_PROCESS_START', 'HOUR_APPR_PROCESS_START',
        // 'FLAG_LAST_APPL_PER_CONTRACT', 'NFLAG_LAST_APPL_IN_DAY',
@@ -30,19 +30,7 @@ var en_tête = "<tr><th>CLIENT</th<th>NAME_CONTRACT_TYP</th><th>MT_ANNUIT</th><t
        // 'CNT_PAYMENT', 'NAME_YIELD_GROUP', 'PRODUCT_COMBINATION',
        // 'DAYS_FIRST_DRAWING', 'DAYS_FIRST_DUE', 'DAYS_LAST_DUE_1ST_VERSION',
        // 'DAYS_LAST_DUE', 'DAYS_TERMINATION', 'NFLAG_INSURED_ON_APPROVAL']
-var liste_champs = [NAME_CONTRACT_TYPE, AMT_ANNUITY,
-       AMT_APPLICATION, AMT_CREDIT, AMT_DOWN_PAYMENT, AMT_GOODS_PRICE,
-       WEEKDAY_APPR_PROCESS_START, HOUR_APPR_PROCESS_START,
-       FLAG_LAST_APPL_PER_CONTRACT, NFLAG_LAST_APPL_IN_DAY,
-       RATE_DOWN_PAYMENT, RATE_INTEREST_PRIMARY,
-       RATE_INTEREST_PRIVILEGED, NAME_CASH_LOAN_PURPOSE,
-       NAME_CONTRACT_STATUS, DAYS_DECISION, NAME_PAYMENT_TYPE,
-       CODE_REJECT_REASON, NAME_TYPE_SUITE, NAME_CLIENT_TYPE,
-       NAME_GOODS_CATEGORY, NAME_PORTFOLIO, NAME_PRODUCT_TYPE,
-       CHANNEL_TYPE, SELLERPLACE_AREA, NAME_SELLER_INDUSTRY,
-       CNT_PAYMENT, NAME_YIELD_GROUP, PRODUCT_COMBINATION,
-       DAYS_FIRST_DRAWING, DAYS_FIRST_DUE, DAYS_LAST_DUE_1ST_VERSION,
-       DAYS_LAST_DUE, DAYS_TERMINATION, NFLAG_INSURED_ON_APPROVAL]
+var nbe_champs_antécèdents = 38
 var X_SMOTE;
 	   
 console.log("Au-revoir");
@@ -255,9 +243,9 @@ function affiche_anciennetés(antécèdents, client) {
 		else {
 		for (var i = 0; i < antécèdents.length; i++) {
 			var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
-			 
-			for (j = 0; j < liste_champs.length; j++) {
-				nouvelle_ligne += "<td>" + antécèdents[i][liste_champs[j]] + "</td>";
+			var les_valeurs = [val for val in antécèdents[i].values()]
+			for (j = 0; j < nbe_champs_antécèdents; j++) {
+				nouvelle_ligne += "<td>" + les_valeurs[j] + "</td>";
 				}
 			nouvelle_ligne += "</tr>";
 			tableau_antécèdents.append(nouvelle_ligne);		
