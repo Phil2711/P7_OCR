@@ -36,8 +36,7 @@ def calcul_du_risque() :
         if anciens[clef]['SK_ID_CURR'] == id_client :
             temporaire.__setitem__(i, valeur)
             i += 1
-    antécèdents = json.dumps(temporaire)
-    
+            
     le_risque = json.dumps(risque.item())
     la_classe = json.dumps(classe.item())
         
