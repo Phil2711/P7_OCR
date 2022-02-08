@@ -212,7 +212,7 @@ function jauge(x) {
 function affiche_anciennetés(antécèdents, client) {
 	console.log("Affichage des antécèdents du client sélectionné");
 	console.log("Chargement des données pour le client : " + client);
-    console.log(antécèdents[0]["AMT_ANNUITY"]);
+    console.log(antécèdents);
 	// $.ajax({
 		// url:"/api/anciennetés_clients/",
 		// success: function(résultat) {
@@ -235,8 +235,8 @@ function affiche_anciennetés(antécèdents, client) {
 			// indices.push(i);
 			// }
 		// }
+	console.log(antécèdents.length);
 	if (antécèdents.length == 0) {
-
 		var nouvelle_ligne = "<tr><td class='client'>" + client + "</td><td>Pas d'antécédent</td><td> </td></tr>";
 		tableau_antécèdents.append(nouvelle_ligne);
 		}
