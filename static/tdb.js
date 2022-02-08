@@ -227,7 +227,7 @@ function affiche_anciennetés(antécèdents, client) {
     var tableau_antécèdents = $("#tableau_antécèdents table");
 	tableau_antécèdents.append(en_tête);
 	// indices = [];
-	// taille = Object.keys(antécèdents).length;
+	taille = Object.keys(antécèdents).length;
 	
 	
 	// for (i = 0; i < taille; i++) {
@@ -235,13 +235,13 @@ function affiche_anciennetés(antécèdents, client) {
 			// indices.push(i);
 			// }
 		// }
-	console.log(antécèdents.length);
+	console.log(taille);
 	if (antécèdents.length == 0) {
 		var nouvelle_ligne = "<tr><td class='client'>" + client + "</td><td>Pas d'antécédent</td><td> </td></tr>";
 		tableau_antécèdents.append(nouvelle_ligne);
 		}
 		else {
-		for (var i = 0; i < antécèdents.length; i++) {
+		for (var i = 0; i < taille; i++) {
 			var nouvelle_ligne = "<tr><td class='client'>" + client + "</td>";
 			 
 			for (j = 0; j < liste_champs.length; j++) {
