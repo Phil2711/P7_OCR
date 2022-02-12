@@ -10,3 +10,4 @@ pandas
 xgboost
 scikit-learn
 shap
+matplotlib
