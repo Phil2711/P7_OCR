@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <meta charset="UTF-8" />
+    
+    <title>Prêt à dépenser</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- <script src="https://code.highcharts.com/modules/wordcloud.js"></script>  -->
+	<script src="https://code.highcharts.com/highcharts-more.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="/static/tdb.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/tdb.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
+	
+
+
+
+	
+  </head>
+  
+  <body>
+
+    <div class="content">
+
+      <header>
+        <div class="header-background"></div>
+        <div class="title">
+          <h1>
+            Calcul du risque par client
+          </h1>
+        </div>
+      </header>
+
+      <main>
+
+				<div id="blocs">
+						
+					<div id="gauche">
+						<text>Sélectionnez un identifiant dans la liste</text>
+						<select id="client" method="GET" action="/">
+						{% for client in clients %}
+							<option value="{{client}}" SELECTED>{{client}}</option>"
+						{% endfor %}
+						</select>
+						<button onclick="récupère_id_client">Choix du client</button>
+						<p id="validation" style="font-weight:bold"></p>
+						<p id="risque"></p>
+							<p id="classe"></p>
+					</div>
+
+					<div id="droite" style="text-align:left">
+						<p>
+						Le risque de non-paiement est indiqué sous la forme d'une probabilité en %
+						</p>
+						<div id="container"></div>
+						<!-- <figure class="highcharts-figure"> -->
+						
+						<!-- </figure> -->
+					</div>
+					
+					
+				<!-- </div> -->
+
+			
+			<div id="tableau_antécèdents" class="tableau">
+				<text class="titreTableau">Antécèdents</text>
+			</div>
+		
+				</div>
+		
+      </main>
+    </div> 
+  </body>
+</html>
