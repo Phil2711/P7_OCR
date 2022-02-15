@@ -14,6 +14,13 @@ import pickle
     
 app = Flask(__name__)
 
+
+class pickler_perso(pickle.Unpickler):
+    def trouve_classe(self, module, nom):
+        if module == "__main__":
+            module = "program"
+        return super().trouve_classe(module, nom)
+
 taux = .2
 FN = .000245
 FP = .08
@@ -27,9 +34,11 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
     inplace = True)
 # illustrateur_shap = shap.TreeExplainer(le_modèle_ajusté, X_SMOTE, y = 192)
 with open('illustrateur.save', 'rb') as f :
-    illustrateur_shap = pickle.load(f)
+    dépaqueté = pickler_perso(f)
+    illustrateur_shap = dépaqueté.load(f)
 with open('valeurs_shap.save', 'rb') as f :
-    valeurs_shap = pickle.load(f)
+    dépaqueté = pickler_perso(f)
+    valeurs_shap = dépaqueté.load(f)
 with open ('anciennetes.json') as base_anciennetes :
     anciens = json.load(base_anciennetes)
 print(valeurs_shap.shape)
