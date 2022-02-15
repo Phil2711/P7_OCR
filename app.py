@@ -32,6 +32,7 @@ with open('valeurs_shap.save', 'rb') as f :
     valeurs_shap = pickle.load(f)
 with open ('anciennetes.json') as base_anciennetes :
     anciens = json.load(base_anciennetes)
+print(valeurs_shap.shape)
 
 def _force_plot_html(valeur_espérée, vecteur, colonnes, ind):
     force_plot = shap.plots.force(valeur_espérée, vecteur[ind], X_SMOTE.values[ind], feature_names = colonnes, matplotlib=False)
