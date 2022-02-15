@@ -26,9 +26,9 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
     axis = 1,
     inplace = True)
 # illustrateur_shap = shap.TreeExplainer(le_modèle_ajusté, X_SMOTE, y = 192)
-with open('illustrateur.save', 'wb') as f :
+with open('illustrateur.save', 'rwb') as f :
     illustrateur_shap = pickle.load(f)
-with open('valeurs_shap.save', 'wb') as f :
+with open('valeurs_shap.save', 'rwb') as f :
     valeurs_shap = pickle.load()
 with open ('anciennetes.json') as base_anciennetes :
     anciens = json.load(base_anciennetes)
