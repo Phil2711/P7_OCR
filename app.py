@@ -11,7 +11,6 @@ from shap.plots._force_matplotlib import draw_additive_plot
 from shap import initjs
 import numpy as np
 import pickle
-import dill
     
 app = Flask(__name__)
 
@@ -28,9 +27,9 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
     inplace = True)
 # illustrateur_shap = shap.TreeExplainer(le_modèle_ajusté, X_SMOTE, y = 192)
 with open('illustrateur.save', 'rb') as f :
-    illustrateur_shap = dill.load(f)
+    illustrateur_shap = pickle.load(f)
 with open('valeurs_shap.save', 'rb') as f :
-    valeurs_shap = dill.load()
+    valeurs_shap = pickle.load()
 with open ('anciennetes.json') as base_anciennetes :
     anciens = json.load(base_anciennetes)
 print(valeurs_shap.shape)
