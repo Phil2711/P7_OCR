@@ -10,12 +10,14 @@ import shap
 from shap.plots._force_matplotlib import draw_additive_plot
 from shap import initjs
 import numpy as np
+import pickle
     
 app = Flask(__name__)
 
 taux = .2
 FN = .000245
 FP = .08
+valeur_attendue_illustrateur = -3.0499682529354506
 le_modèle_ajusté = xgb.XGBClassifier()
 le_modèle_ajusté.load_model('modèle.txt') 
 X_SMOTE = pd.read_csv('X_SMOTE_TDB.csv')
@@ -23,43 +25,21 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
     X_SMOTE.drop('Unnamed: 0',
     axis = 1,
     inplace = True)
-illustrateur_shap = shap.TreeExplainer(le_modèle_ajusté, X_SMOTE, y = 192)
-valeurs_shap = illustrateur_shap.shap_values(X_SMOTE)
-
+# illustrateur_shap = shap.TreeExplainer(le_modèle_ajusté, X_SMOTE, y = 192)
+with open('illustrateur.save', 'rb') as f :
+    illustrateur_shap = pickle.load(f)
+with open('valeurs_shap.save', 'rb') as f :
+    valeurs_shap = pickle.load(f)
 with open ('anciennetes.json') as base_anciennetes :
     anciens = json.load(base_anciennetes)
 
-def _force_plot_html(illustrateur, valeurs, colonnes, ind):
-    force_plot = shap.plots.force(illustrateur.expected_value, valeurs[ind], X_SMOTE.values[ind], feature_names = colonnes, matplotlib=False)
+def _force_plot_html(valeur_espérée, vecteur, colonnes, ind):
+    force_plot = shap.plots.force(valeur_espérée, vecteur[ind], X_SMOTE.values[ind], feature_names = colonnes, matplotlib=False)
     shap_html = f"<head>{shap.getjs()}</head><body>{force_plot.html()}</body>"
         
     return shap_html      
 
-# shap_plots = {}
-
-# for i in range(10000) :
-    # shap_plots[i] = _force_plot_html(illustrateur_shap.expected_value, valeurs_shap, X_SMOTE.columns, i)
-    
-#================================================================================
-
-# @app.route('/api/shap/', methods = ['GET'])
-# def shap_force() :
-    
-    # id_temp = request.args.get('id', 0)
-    # id_client = int(id_temp) - 101633
-    
-    # shap.initjs()
-
-  
-        
-    # shap_plots = {}    
-    
-    # shap_plots[0] = _force_plot_html(illustrateur_shap.expected_value, valeurs_shap, X_SMOTE.columns, id_client)
-   
-    # return render_template('tdb.html',
-                           # clients,
-                           # shap_plots = shap_plots)
-                            
+                           
 
 @app.route('/functions/risque/', methods = ['GET'])
 def calcul_du_risque() :
@@ -73,7 +53,7 @@ def calcul_du_risque() :
     
     shap_plots = {}    
    
-    shap_plots[0] = _force_plot_html(illustrateur_shap, valeurs_shap, X_SMOTE.columns, id_client - 100002)
+    shap_plots[0] = _force_plot_html(valeur_attendue_illustrateur, valeurs_shap, X_SMOTE.columns, id_client - 100002)
     champ1 = X_SMOTE[X_SMOTE['SK_ID_CURR'] == id_client].columns[np.where(valeurs_shap[id_client - 100002] == np.max(valeurs_shap[id_client - 100002]))[0][0]]
     champ2 = X_SMOTE[X_SMOTE['SK_ID_CURR'] == id_client].columns[np.where(valeurs_shap[id_client - 100002] == np.min(valeurs_shap[id_client - 100002]))[0][0]]
     valeurs1 = X_SMOTE[champ1].to_dict()
