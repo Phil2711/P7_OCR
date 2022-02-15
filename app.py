@@ -35,10 +35,10 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
 # illustrateur_shap = shap.TreeExplainer(le_modèle_ajusté, X_SMOTE, y = 192)
 with open('illustrateur.save', 'rb') as f :
     dépaqueté = pickler_perso(f)
-    illustrateur_shap = dépaqueté.load(f)
+    illustrateur_shap = dépaqueté.load()
 with open('valeurs_shap.save', 'rb') as f :
     dépaqueté = pickler_perso(f)
-    valeurs_shap = dépaqueté.load(f)
+    valeurs_shap = dépaqueté.load()
 with open ('anciennetes.json') as base_anciennetes :
     anciens = json.load(base_anciennetes)
 print(valeurs_shap.shape)
