@@ -27,10 +27,12 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
     axis = 1,
     inplace = True)
 
-with open('illustrateur.save', 'rb') as fichier_illustrateur :
-    illustrateur_shap = pickle.load(fichier_illustrateur)
-with open('valeurs_shap.save', 'rb') as fichier_shap :
-    valeurs_shap = pickle.load(fichier_shap)
+#with open('illustrateur.save', 'rb') as fichier_illustrateur :
+#    illustrateur_shap = pickle.load(fichier_illustrateur)
+#with open('valeurs_shap.save', 'rb') as fichier_shap :
+#    valeurs_shap = pickle.load(fichier_shap)
+illustrateur_shap = pd.read_pickle('illustrateur.save')
+valeurs_shap = pd.read_pickle('valeurs_shap.save')
 with open ('anciennetes.json') as base_anciennetes :
     anciens = json.load(base_anciennetes)
     
