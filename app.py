@@ -11,6 +11,7 @@ from shap.plots._force_matplotlib import draw_additive_plot
 from shap import initjs
 import numpy as np
 import pickle
+import numba
     
 app = Flask(__name__)
 
