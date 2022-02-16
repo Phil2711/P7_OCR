@@ -27,7 +27,7 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
     inplace = True)
 # illustrateur_shap = shap.TreeExplainer(le_modèle_ajusté, X_SMOTE, y = 192)
 illustrateur_shap = shap.TreeExplainer
-valeurs_shap = shap.TreeExplainer.ShapValues
+valeurs_shap = shap.TreeExplainer.shap_values
 with open('illustrateur.save', 'r') as f :
     illustrateur_shap = pickle.load(f)
 with open('valeurs_shap.save', 'r') as f :
