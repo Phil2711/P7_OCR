@@ -27,7 +27,8 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
     axis = 1,
     inplace = True)
 # illustrateur_shap = shap.TreeExplainer(le_modèle_ajusté, X_SMOTE, y = 192)
-nom_illustrateur = 'illustrateur.save'pickle.dump(explainer, open(nom_illustrateur, 'wb'))`
+nom_illustrateur = 'illustrateur.save'
+pickle.dump(explainer, open(nom_illustrateur, 'wb'))
 illustrateur_shap = pickle.load(open(nom_illustrateur, 'rb'))
 #with open('illustrateur.save', 'rb') as fichier_illustrateur :
  #   illustrateur_shap = pickle.load(fichier_illustrateur)
