@@ -26,14 +26,13 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
     axis = 1,
     inplace = True)
 # illustrateur_shap = shap.TreeExplainer(le_modèle_ajusté, X_SMOTE, y = 192)
-with open('illustrateur.save', 'rb') as f :
-    illustrateur_shap = pickle.load(f)
-with open('valeurs_shap.save', 'rb') as f :
-    valeurs_shap = pickle.load(f)
+with open('illustrateur.save') as fichier_illustrateur :
+    illustrateur_shap = pickle.load(fichier_illustrateur)
+with open('valeurs_shap.save') as fichier_shap :
+    valeurs_shap = pickle.load(fichier_shap)
 with open ('anciennetes.json') as base_anciennetes :
     anciens = json.load(base_anciennetes)
-print(valeurs_shap.shape)
-
+    
 def _force_plot_html(valeur_espérée, vecteur, colonnes, ind):
     force_plot = shap.plots.force(valeur_espérée, vecteur[ind], X_SMOTE.values[ind], feature_names = colonnes, matplotlib=False)
     shap_html = f"<head>{shap.getjs()}</head><body>{force_plot.html()}</body>"
