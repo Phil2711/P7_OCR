@@ -9,5 +9,5 @@ requests==2.25.1
 pandas
 xgboost
 scikit-learn
-shap
+shap==0.40.0
 matplotlib
