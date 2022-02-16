@@ -26,8 +26,10 @@ if X_SMOTE.columns[0] == 'Unnamed: 0' :
     X_SMOTE.drop('Unnamed: 0',
     axis = 1,
     inplace = True)
-valeurs = pd.read_csv('valeurs_shap.csv')
-valeurs_shap = np.array([valeurs.iloc[i]['vecteur'] for i in range(valeurs.shape[0])])
+with open('illustrateur.save', 'rb') as f :
+    illustrateur_shap = pickle.load(f)
+with open('valeurs_shap.save', 'rb') as f :
+    valeurs_shap = pickle.load(f)
 with open ('anciennetes.json') as base_anciennetes :
     anciens = json.load(base_anciennetes)
     
