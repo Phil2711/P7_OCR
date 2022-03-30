@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # import plotly.graph_objects as go
 import xgboost as xgb
+import pandas as pd
 
 # Calcule le résultat du candidat selon le modèle choisi
 # En entrée :
@@ -11,20 +12,20 @@ import xgboost as xgb
 #  -le résultat du client
 #  -la classe d'appartenance du client
 def risque_client(X,
-                  client,
-                  emplacement) :
+                  client) :
 
     if X.columns[0] == 'Unnamed: 0' :
         X.drop('Unnamed: 0',
                axis = 1,
                inplace = True)
     le_modèle_ajusté = xgb.XGBClassifier()
-    le_modèle_ajusté.load_model(emplacement + '\\Data\\modele.json')
+    le_modèle_ajusté.load_model('modèle.txt')
 
     la_proba_du_client = le_modèle_ajusté.predict_proba(X[X['SK_ID_CURR'] == client])[0][1]
     la_classe_du_client = le_modèle_ajusté.predict(X[X['SK_ID_CURR'] == client])[0]
 
     return la_proba_du_client, la_classe_du_client
+    
 
 # Trace le seuil et la position du candidat sous forme de jauge
 # En entrée :

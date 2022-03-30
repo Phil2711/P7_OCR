@@ -10,6 +10,7 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
     <!-- <script src="https://code.highcharts.com/modules/wordcloud.js"></script>  -->
 	<script src="https://code.highcharts.com/highcharts-more.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -60,19 +61,20 @@
 						<p>
 						Le risque de non-paiement est indiqué sous la forme d'une probabilité en %
 						</p>
-						<div id="container"></div>
-						<!-- <figure class="highcharts-figure"> -->
-						
-						<!-- </figure> -->
+						<div id="container1"></div>
 					</div>
 					
+					<div id="shap"></div>
 					
-				<!-- </div> -->
-
-			
-			<div id="tableau_antécèdents" class="tableau">
-				<text class="titreTableau">Antécèdents</text>
-			</div>
+					<div id="gauche">
+						<div id="container2"></div>
+					</div>
+					<div id="droite">
+						<div id="container3"></div>
+					</div>
+					<div id="tableau_antécèdents" class="tableau">
+						<text class="titreTableau">Antécèdents</text>
+					</div>
 		
 				</div>
 		
